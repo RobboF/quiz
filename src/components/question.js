@@ -6,7 +6,7 @@ export default function Question(props) {
     <>
       <h2 class="f6 fw1 ttu tracked mb1 lh-title">Question {props.i + 1}</h2>
 
-      <article class=" dt w-100" style={{ height: "70vh" }}>
+      <article class=" dt w-100" style={{ height: "50vh" }}>
         <div class="dtc v-mid tc white ph3 ph4-l">{RenderContent(props.q)}</div>
       </article>
     </>
