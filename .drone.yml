@@ -6,7 +6,11 @@ steps:
 - name: docker  
   image: plugins/docker
   settings:
-    repo: robbof/quiz
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: robbof/homepage
     tags: 
       - latest
       - ${DRONE_COMMIT_SHA}
