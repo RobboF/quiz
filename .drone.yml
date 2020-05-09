@@ -24,4 +24,5 @@ steps:
     kubernetes_token:
       from_secret: k8s_token
   commands:
+    - kubectl delete -f deployment
     - kubectl apply -f deployment.yml
