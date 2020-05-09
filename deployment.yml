@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quiz
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quiz
+  template:
+    metadata:
+      labels:
+        app: quiz
+    spec:
+      containers:
+      - name: quiz
+        image: robbof/quiz
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: quiz
+  namespace: default
+spec:
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80
+  selector:
+    app: quiz
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: quiz
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+
+spec:
+  rules:
+  - host: quiz.0x9.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: quiz
+          servicePort: http
+
