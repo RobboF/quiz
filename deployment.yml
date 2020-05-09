@@ -40,7 +40,7 @@ metadata:
 
 spec:
   rules:
-  - host: quiz.0x9.uk
+  - host: quiz.robbo.xyz
     http:
       paths:
       - path: /
