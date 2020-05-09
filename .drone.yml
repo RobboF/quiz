@@ -24,4 +24,4 @@ steps:
     kubernetes_token:
       from_secret: k8s_token
   commands:
-    - kubectl apply -f homepage.yml
+    - kubectl apply -f deployment.yml
